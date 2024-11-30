@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300..700;1,300..700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button{
+  cursor: pointer;
+}
+
+body {
+  --color1: #f7f7f7ff;
+  --color2: #292021;
+  --color3: #886750;
+  font-family: "Bellota Text", sans-serif;
+
+  min-height: 100vh;
+  background-image: url(../img/header_main.jpg);
+  background-position: center center;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar{
+  width: 4px;
+}
+body::-webkit-scrollbar-thumb{
+  width: 4px;
+  background-color: var(--color3);
+  border-radius: 4px;
+}
