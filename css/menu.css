@@ -18,14 +18,14 @@ body{
 }
 .loader img{
   width: 100px;
-  animation: loader 2s infinite alternate-reverse ease-in-out;
+  animation: loader 1s infinite alternate-reverse ease-in-out;
 }
 @keyframes loader{
   0%{
-    transform: perspective(100px) rotateY(0deg);
+    transform: scale(100%);
   }
   100%{
-    transform: perspective(100px) rotateY(360deg);
+    transform: scale(110%);
   }
 }
 .loader_hide{

@@ -54,7 +54,7 @@ const words = {
     yourOrder: 'Ваш заказ:',
     sendOrder: 'Отправить заказ',
 
-    announcement: 'Внимание!',
+    announcement: '',
     announcementText: 'Выберете желаемые блюда, затем пригласите официанта и покажите ему корзину',
     menu: 'МЕНЮ',
     leaveReviewLink: 'Оставьте отзыв',
@@ -81,7 +81,7 @@ const words = {
     yourOrder: 'Your order:',
     sendOrder: 'Send order',
 
-    announcement: 'Attention!',
+    announcement: '',
     announcementText: 'Select the desired dishes, then invite the waiter and show him the basket',
     menu: 'MENU',
     leaveReviewLink: 'Leave a review',
@@ -99,33 +99,6 @@ const words = {
 
     orderMessage: '⚡⚡New order!\nList of dishes:\n',
   },
-  tr: {
-    portion: 'porsiyon',
-    cost: 'fiyat',
-    pieces: 'tane',
-
-    totalCost: 'toplam maliyet',
-    yourOrder: 'Siparişiniz:',
-    sendOrder: 'Siparişi gönder',
-
-    announcement: 'Dikkat!',
-    announcementText: 'İşaretlediğiniz yemekleri seçtikten sonra müşteri memuru çağrınız ve kasenizi gösteriniz',
-    menu: 'MENÜ',
-    leaveReviewLink: 'Yorum bırak',
-    deletePortionMessage: 'Porsiyonu sil?',
-
-    leaveReview: 'Yorum bırak',
-    thankYou: 'Teşekkürler! Yorumunuz gönderildi!',
-    food: 'Yemek:',
-    service: 'Hizmet:',
-    comment: 'Yorumunuz',
-    send: 'Gönder',
-
-    textSendOrder: 'Siparişiniz başarıyla gönderildi!',
-    textErrorSendOrder: 'Siparişiniz gönderilirken bir hata oluştu. Lütfen tekrar deneyiniz veya müşteri memuru çağrınız',
-
-    orderMessage: '⚡⚡Yeni sipariş!\nYemek listesi:\n',
-  },
   es: {
     portion: 'porción',
     cost: 'costo',
@@ -135,7 +108,7 @@ const words = {
     yourOrder: 'Tu pedido:',
     sendOrder: 'Enviar pedido',
 
-    announcement: '¡Atención!',
+    announcement: '',
     announcementText: 'Selecciona los platos deseados, luego invita al camarero y muéstrale la cesta',
     menu: 'MENÚ',
     leaveReviewLink: 'Dejar una reseña',
@@ -161,7 +134,7 @@ const words = {
     yourOrder: 'Seu pedido:',
     sendOrder: 'Enviar pedido',
 
-    announcement: 'Atenção!',
+    announcement: '',
     announcementText: 'Selecione os pratos desejados, em seguida, chame o garçom e mostre a cesta',
     menu: 'MENU',
     leaveReviewLink: 'Deixar uma avaliação',
