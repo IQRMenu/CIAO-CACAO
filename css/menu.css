@@ -1,6 +1,7 @@
 body{
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   padding-top: 120px;
+  position: relative;
 }
 
 .loader{
@@ -40,6 +41,7 @@ h1{
   text-align: center;
   margin-bottom: 40px;
   color: var(--color1);
+  display: none;
 }
 
 /* feedback */
@@ -213,7 +215,8 @@ nav {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(20, 20, 20, 0.8);
+  /* background-color: rgba(20, 20, 20, 0.8); */
+  background-color: var(--color2);
   z-index: 14;
   border-radius: 0 0 20px 20px;
 }
@@ -346,6 +349,8 @@ button.basket-clouse_active{
   font-size: 16px;
   transition: 0.5s;
   flex-shrink: 0;
+  width: max-content;
+  min-width: 60%;
 }
 .category-list button.button_active{
   background-color: var(--color3);
@@ -701,5 +706,26 @@ button.basket-clouse_active{
   pointer-events: none;
 }
 
+
+
+
+footer{
+  background-color: var(--color2);
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+footer a{
+  color: var(--color1);
+}
+
+footer i{
+  margin-right: 8px;
+
+}
 
 
