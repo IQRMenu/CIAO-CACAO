@@ -32,8 +32,12 @@ document.querySelector('#annonce-block-clouse').onclick = function () {
 const lang = document.documentElement.lang;
 const mainLang = 'es';
 const currencySymbol = '$';
-const tel = '+90 (242) 244 40 00';
-const address = 'Tahilpazari Mh. 463 Sok. N: 1/1 M. Paşa 07040 ANTALYA';
+const tel = '';
+const address = 'Arévalo 1506 Buenos Aires';
+const addressLink = 'https://maps.app.goo.gl/StkHhp6WBcwhrJUTA';
+const addressLinkA = document.querySelector('#address-link');
+addressLinkA.setAttribute('href', addressLink);
+addressLinkA.querySelector('span').innerText = address
 
 const formAction = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdJ0iAudp2-h5IRq5DodCQZAXt9hJTNSZgZnda8s8t_1xX-pQ/formResponse';
 const nameinputservice = 'entry.1629191978';
@@ -71,6 +75,8 @@ const words = {
     textErrorSendOrder: 'Ошибка при отправке заказа. Пожалуйста, попробуйте еще раз или принласите официанта',
 
     orderMessage: `⚡⚡Новый заказ!\nСписок блюд:\n`,
+
+    IQRMenuLink: 'Заказать меню',
   },
   en: {
     portion: 'portion',
@@ -98,6 +104,8 @@ const words = {
     textErrorSendOrder: 'Error sending order. Please try again or call the waiter',
 
     orderMessage: '⚡⚡New order!\nList of dishes:\n',
+
+    IQRMenuLink: 'Order menu',
   },
   es: {
     portion: 'porción',
@@ -124,6 +132,8 @@ const words = {
     textErrorSendOrder: 'Error al enviar el pedido. Por favor, inténtalo de nuevo o llama al camarero',
 
     orderMessage: '⚡⚡¡Nuevo pedido!\nLista de platos:\n',
+
+    IQRMenuLink: 'Menú de pedidos',
   },
   pt: {
     portion: 'porção',
@@ -151,6 +161,8 @@ const words = {
     textErrorSendOrder: 'Erro ao enviar o pedido. Por favor, tente novamente ou chame o garçom',
 
     orderMessage: '⚡⚡Novo pedido!\nLista de pratos:\n',
+
+    IQRMenuLink: 'Menu de pedidos',
   }
 }
 

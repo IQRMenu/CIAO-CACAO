@@ -1,5 +1,5 @@
 body{
-  padding-bottom: 100px;
+  padding-bottom: 140px;
   padding-top: 120px;
   position: relative;
 }
@@ -717,6 +717,10 @@ footer{
   bottom: 0;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }
 
 footer a{
@@ -725,7 +729,19 @@ footer a{
 
 footer i{
   margin-right: 8px;
-
+}
+#LinkIQRMenuUnfoES{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background-color: var(--color1);
+  color: var(--color3);
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+#LinkIQRMenuUnfoES img{
+  width: 30px;
 }
 
 
