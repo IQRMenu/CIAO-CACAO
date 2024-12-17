@@ -18,12 +18,15 @@ fetchDishesList()
     console.error('Ошибка при получении списка блюд:', error);
   });
 
-const VersionPro = false
+document.querySelector('.feedBack-button').classList.add('display_none');
+const VersionPro = true
 if (VersionPro == false){
   document.getElementById('sendOrder').classList.add('display_none');
-  document.querySelector('.feedBack-button').classList.add('display_none');
+}else{
+  document.querySelector('.annonce-block').classList.add('displayNone');
+  document.querySelector('body').classList.remove('event_none');
 }
-document.querySelector('.feedBack-button').classList.add('display_none');
+
 
 document.querySelector('#annonce-block-clouse').onclick = function () {
   document.querySelector('.annonce-block').classList.add('displayNone');
@@ -404,7 +407,7 @@ sendOrderButton.onclick = function () {
 
   
   let totalCostMessage = 0;
-  let orderMessage = `${words[mainLang].tableNumber}${tableNumber}\n\n${words[mainLang].orderMessage}`;
+  let orderMessage = `${lang}\n${words[mainLang].tableNumber}${tableNumber}\n\n${words[mainLang].orderMessage}`;
   let portionNumberMessage = 0;
   basketList.forEach(item => {
     portionNumberMessage += 1;
