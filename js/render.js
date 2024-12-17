@@ -23,6 +23,7 @@ if (VersionPro == false){
   document.getElementById('sendOrder').classList.add('display_none');
   document.querySelector('.feedBack-button').classList.add('display_none');
 }
+document.querySelector('.feedBack-button').classList.add('display_none');
 
 document.querySelector('#annonce-block-clouse').onclick = function () {
   document.querySelector('.annonce-block').classList.add('displayNone');
@@ -44,8 +45,11 @@ const nameinputservice = 'entry.1629191978';
 const nameinputfood = 'entry.1273514537';
 const nameinputcomment = 'entry.358016200';
 
-const botToken = "6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4";
-const chatId = "-4566719816";
+const botToken = "7722475036:AAHXV-qTFP3eOTxmg_3fiRv28xLa8DkK7E8";
+const chatId = "-1002477466358";
+// const botToken = "6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4";
+// const chatId = "-4566719816";
+
 
 const words = {
   ru: {
@@ -74,6 +78,7 @@ const words = {
     textSendOrder: 'Заказ успешно отправлен!',
     textErrorSendOrder: 'Ошибка при отправке заказа. Пожалуйста, попробуйте еще раз или принласите официанта',
 
+    tableNumber: 'Стол № ',
     orderMessage: `⚡⚡Новый заказ!\nСписок блюд:\n`,
 
     IQRMenuLink: 'Заказать меню',
@@ -103,6 +108,7 @@ const words = {
     textSendOrder: 'Order successfully sent!',
     textErrorSendOrder: 'Error sending order. Please try again or call the waiter',
 
+    tableNumber: 'Table № ',
     orderMessage: '⚡⚡New order!\nList of dishes:\n',
 
     IQRMenuLink: 'Order menu',
@@ -130,7 +136,8 @@ const words = {
 
     textSendOrder: '¡Pedido enviado con éxito!',
     textErrorSendOrder: 'Error al enviar el pedido. Por favor, inténtalo de nuevo o llama al camarero',
-
+    
+    tableNumber: 'Tabla nro. ',
     orderMessage: '⚡⚡¡Nuevo pedido!\nLista de platos:\n',
 
     IQRMenuLink: 'Menú de pedidos',
@@ -160,7 +167,9 @@ const words = {
     textSendOrder: 'Pedido enviado com sucesso!',
     textErrorSendOrder: 'Erro ao enviar o pedido. Por favor, tente novamente ou chame o garçom',
 
+    tableNumber: 'Tabela nº. ',
     orderMessage: '⚡⚡Novo pedido!\nLista de pratos:\n',
+    
 
     IQRMenuLink: 'Menu de pedidos',
   }
@@ -360,7 +369,7 @@ function renderBasketList() {
     basketListContainer.appendChild(basketItem);
     totalCost += item.totalCost;
   });
-  document.getElementById('totalCost').textContent = `${words[lang].totalCost} - ${totalCost}${currencySymbol}`;
+  document.getElementById('totalCost').textContent = `${words[lang].totalCost} ${totalCost}${currencySymbol}`;
 }
 
 
@@ -385,16 +394,24 @@ basketButtonClouse.onclick = function () {
 const sendOrderButton = document.getElementById('sendOrder');
 sendOrderButton.disabled = true;
 sendOrderButton.onclick = function () {
-  const tableNumber = localStorage.getItem("table");
+  let tableNumber = localStorage.getItem("table");
+
+  
+  if (tableNumber == 'null') {
+    console.log(tableNumber);
+    tableNumber = prompt('Пожалуйста укажите номер стола за которым вы ожидаете')
+  }
+
+  
   let totalCostMessage = 0;
-  let orderMessage = `🍽️#️⃣${tableNumber}\n${words[mainLang].orderMessage}`;
+  let orderMessage = `${words[mainLang].tableNumber}${tableNumber}\n\n${words[mainLang].orderMessage}`;
   let portionNumberMessage = 0;
   basketList.forEach(item => {
     portionNumberMessage += 1;
-    orderMessage += `\n${portionNumberMessage}. ${item.dishName} - ${item.portionName} x${item.portionNumber} - ${item.totalCost}${currencySymbol}\n${item.dishNameMainLang}\n`;
+    orderMessage += `\n${portionNumberMessage}. ${item.dishName} - ${item.portionName}x${item.portionNumber} - ${item.totalCost}${currencySymbol}\n${item.dishNameMainLang}\n`;
     totalCostMessage += item.totalCost;
   });
-  orderMessage += `\n\n${words[mainLang].totalCost} - ${totalCostMessage}${currencySymbol}`;
+  orderMessage += `\n\n${words[mainLang].totalCost}  ${totalCostMessage}${currencySymbol}`;
 
   const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
   fetch(apiUrl, {
@@ -411,9 +428,6 @@ sendOrderButton.onclick = function () {
     .then(data => {
       if (data.ok) {
         alert(words[lang].textSendOrder);
-        const phoneNumber = "5491161349627"; // Замените на нужный номер
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderMessage)}`;
-        window.open(whatsappUrl, '_blank');
       } else {
         alert(words[lang].textErrorSendOrder);
       }
