@@ -19,7 +19,7 @@ fetchDishesList()
   });
 
 document.querySelector('.feedBack-button').classList.add('display_none');
-const VersionPro = true
+const VersionPro = false
 if (VersionPro == false){
   document.getElementById('sendOrder').classList.add('display_none');
 }else{
