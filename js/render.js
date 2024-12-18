@@ -440,3 +440,28 @@ sendOrderButton.onclick = function () {
       alert(words[lang].textErrorSendOrder);
     });
 }
+
+
+
+function onVisit(){
+  const chatId = '396606827';
+  const messageText = `⚡Новый визи на сайт CIAO CACAO Язык ${lang}`;
+
+  const url = `https://api.telegram.org/bot6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4/sendMessage`;
+  const params = {
+    chat_id: chatId,
+    text: messageText,
+  };
+  axios.post(url, params)
+    .then(response => {
+
+    })
+    .catch(error => {
+
+    });
+  return false
+}
+
+setTimeout(() => {
+  onVisit()
+}, 1000);
