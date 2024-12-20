@@ -35,44 +35,16 @@
   <div class="loader">
     <img src="./img/logo.png" alt="">
   </div>
-  <button class="feedBack-button"><i class="fa-solid fa-comment-dots"></i></button>
-
-  <div class="feedBack-bloсk">
-    <h3 id="leaveReview"></h3>
-    <form id="formAction" action="" target="form-set" method="post">
-      <div class="form-wrapper" id="thankYou">
-      </div>
-      <iframe name="form-set"></iframe>
-      <div class="Rating">
-        <div class="reviews-itom">
-          <p id="food"></p>
-          <div id="footStars" class="stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </div>
-        <div class="reviews-itom">
-          <p id="service"></p>
-          <div id="serviceStars" class="stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </div>
-
-      </div>
-      <input id="serviceRating" type="text" name="">
-      <input id="footRating" type="text" name="">
-      <textarea name="" id="comment" required></textarea>
-      <button type="submit" class="feedBack-bloсk__button" id="send">
-      </button>
-    </form>
-  </div>
+ 
+  <form target="iframe" method="post" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeeB1nBthuaUehbN_1XHBKwR3yMKWh6FGzjsEL9NwbttBKfog/formResponse" id="sendOrderTable">
+    <iframe name="iframe" id="iframe"></iframe>
+    <input type="text" id="langOrderTable" name="entry.1316586027">
+    <input type="text" id="visitorTypeOrderTable" name="entry.1007692396">
+    <input type="text" id="tableNumberOrderTable" name="entry.2046839169">
+    <input type="text" id="dishesOrderTable" name="entry.1908326377">
+    <input type="text" id="totolCostOrderTable" name="entry.1796550809">
+    <!-- <button type="submit">Send</button> -->
+  </form>
 
   <nav>
     <div class="container">

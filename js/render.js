@@ -18,11 +18,11 @@ fetchDishesList()
     console.error('Ошибка при получении списка блюд:', error);
   });
 
-document.querySelector('.feedBack-button').classList.add('display_none');
+
 const VersionPro = false
-if (VersionPro == false){
+if (VersionPro == false) {
   document.getElementById('sendOrder').classList.add('display_none');
-}else{
+} else {
   document.querySelector('.annonce-block').classList.add('displayNone');
   document.querySelector('body').classList.remove('event_none');
 }
@@ -32,6 +32,7 @@ document.querySelector('#annonce-block-clouse').onclick = function () {
   document.querySelector('.annonce-block').classList.add('displayNone');
   document.querySelector('body').classList.remove('event_none');
 }
+
 
 const lang = document.documentElement.lang;
 const mainLang = 'es';
@@ -48,10 +49,10 @@ const nameinputservice = 'entry.1629191978';
 const nameinputfood = 'entry.1273514537';
 const nameinputcomment = 'entry.358016200';
 
-const botToken = "7722475036:AAHXV-qTFP3eOTxmg_3fiRv28xLa8DkK7E8";
-const chatId = "-1002477466358";
-// const botToken = "6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4";
-// const chatId = "-4566719816";
+// const botToken = "7722475036:AAHXV-qTFP3eOTxmg_3fiRv28xLa8DkK7E8";
+// const chatId = "-1002477466358";
+const botToken = "6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4";
+const chatId = "-4566719816";
 
 
 const words = {
@@ -139,7 +140,7 @@ const words = {
 
     textSendOrder: '¡Pedido enviado con éxito!',
     textErrorSendOrder: 'Error al enviar el pedido. Por favor, inténtalo de nuevo o llama al camarero',
-    
+
     tableNumber: 'Tabla nro. ',
     orderMessage: '⚡⚡¡Nuevo pedido!\nLista de platos:\n',
 
@@ -172,7 +173,7 @@ const words = {
 
     tableNumber: 'Tabela nº. ',
     orderMessage: '⚡⚡Novo pedido!\nLista de pratos:\n',
-    
+
 
     IQRMenuLink: 'Menu de pedidos',
   }
@@ -225,8 +226,8 @@ function renderDishesList(category) {
   dishesListContainer.classList.add('dishes-list_loading');
   setTimeout(() => {
     dishesListContainer.innerHTML = '';
-    storeData.forEach(dishitem=> {
-      if (dishitem[`${lang}Category`] === category) {
+    storeData.forEach(dishitem => {
+      if (dishitem[`${lang}Category`] === category && dishitem.inStore == 'Yes') {
         const dishCard = document.createElement('div');
         dishCard.dataset.id = dishitem.id;
         dishCard.classList.add('dishes-card');
@@ -396,25 +397,34 @@ basketButtonClouse.onclick = function () {
 // отправка заказа
 const sendOrderButton = document.getElementById('sendOrder');
 sendOrderButton.disabled = true;
+
+
 sendOrderButton.onclick = function () {
   let tableNumber = localStorage.getItem("table");
 
-  
+
   if (tableNumber == 'null') {
     console.log(tableNumber);
     tableNumber = prompt('Пожалуйста укажите номер стола за которым вы ожидаете')
   }
 
-  
+
   let totalCostMessage = 0;
   let orderMessage = `${lang}\n${words[mainLang].tableNumber}${tableNumber}\n\n${words[mainLang].orderMessage}`;
   let portionNumberMessage = 0;
   basketList.forEach(item => {
     portionNumberMessage += 1;
+    document.querySelector('#dishesOrderTable').value += `${portionNumberMessage}. ${item.dishName}    `;
     orderMessage += `\n${portionNumberMessage}. ${item.dishName} - ${item.portionName}x${item.portionNumber} - ${item.totalCost}${currencySymbol}\n${item.dishNameMainLang}\n`;
     totalCostMessage += item.totalCost;
   });
   orderMessage += `\n\n${words[mainLang].totalCost}  ${totalCostMessage}${currencySymbol}`;
+
+  document.querySelector('#langOrderTable').value = lang;
+  document.querySelector('#visitorTypeOrderTable').value = 'Новый';
+  document.querySelector('#tableNumberOrderTable').value = tableNumber;
+  // document.querySelector('#dishesOrderTable').value = orderMessage;
+  document.querySelector('#totolCostOrderTable').value = totalCostMessage;
 
   const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
   fetch(apiUrl, {
@@ -427,41 +437,44 @@ sendOrderButton.onclick = function () {
       text: orderMessage,
     }),
   })
+
     .then(response => response.json())
     .then(data => {
       if (data.ok) {
         alert(words[lang].textSendOrder);
+        formSendOrderTable = document.getElementById('sendOrderTable').submit();
+        console.log(formSendOrderTable);
       } else {
         alert(words[lang].textErrorSendOrder);
       }
     })
-    .catch(error => {
-      console.error('Ошибка:', error);
-      alert(words[lang].textErrorSendOrder);
-    });
+  // .catch(error => {
+  //   console.error('Ошибка:', error);
+  //   alert(words[lang].textErrorSendOrder);
+  // });
 }
 
 
 
-function onVisit(){
-  const chatId = '396606827';
-  const messageText = `⚡Новый визи на сайт CIAO CACAO Язык ${lang}`;
+// function onVisit(){
+//   const chatId = '396606827';
+//   const messageText = `⚡Новый визи на сайт CIAO CACAO Язык ${lang}`;
 
-  const url = `https://api.telegram.org/bot6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4/sendMessage`;
-  const params = {
-    chat_id: chatId,
-    text: messageText,
-  };
-  axios.post(url, params)
-    .then(response => {
+//   const url = `https://api.telegram.org/bot6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4/sendMessage`;
+//   const params = {
+//     chat_id: chatId,
+//     text: messageText,
+//   };
+//   axios.post(url, params)
+//     .then(response => {
 
-    })
-    .catch(error => {
+//     })
+//     .catch(error => {
 
-    });
-  return false
-}
+//     });
+//   return false
+// }
 
-setTimeout(() => {
-  onVisit()
-}, 1000);
+// setTimeout(() => {
+//   onVisit()
+// }, 1000);
