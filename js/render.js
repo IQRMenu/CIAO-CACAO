@@ -19,7 +19,7 @@ fetchDishesList()
   });
 
 
-const VersionPro = false
+const VersionPro = true
 if (VersionPro == false) {
   document.getElementById('sendOrder').classList.add('display_none');
 } else {
@@ -44,13 +44,15 @@ const addressLinkA = document.querySelector('#address-link');
 addressLinkA.setAttribute('href', addressLink);
 addressLinkA.querySelector('span').innerText = address
 
-const formAction = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdJ0iAudp2-h5IRq5DodCQZAXt9hJTNSZgZnda8s8t_1xX-pQ/formResponse';
-const nameinputservice = 'entry.1629191978';
-const nameinputfood = 'entry.1273514537';
-const nameinputcomment = 'entry.358016200';
+// const formAction = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdJ0iAudp2-h5IRq5DodCQZAXt9hJTNSZgZnda8s8t_1xX-pQ/formResponse';
+// const nameinputservice = 'entry.1629191978';
+// const nameinputfood = 'entry.1273514537';
+// const nameinputcomment = 'entry.358016200';
 
 // const botToken = "7722475036:AAHXV-qTFP3eOTxmg_3fiRv28xLa8DkK7E8";
 // const chatId = "-1002477466358";
+
+// тестовый бот
 const botToken = "6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4";
 const chatId = "-4566719816";
 
@@ -256,7 +258,7 @@ function renderDishesList(category) {
             const portionElement = document.createElement('div');
             portionElement.classList.add('portion-item');
             portionElement.innerHTML = `
-                  <p class="portion-item__text"><span>${words[lang].portion} <span class="portion-name">${portionName}</span> - </span><span> <span class="portion-cost">${portionCost}${currencySymbol}</span></span></p>
+                  <p class="portion-item__text"><span><span class="portion-name">${portionName}</span> - </span><span> <span class="portion-cost">${portionCost}${currencySymbol}</span></span></p>
                   <div class="portion-item__buttons">
                     <button class="portion-minus"><i class="fa-solid fa-minus"></i></button>
                     <span class="portion-number">${portionNumber}</span>

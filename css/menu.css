@@ -351,6 +351,7 @@ button.basket-clouse_active{
   flex-shrink: 0;
   width: max-content;
   min-width: 60%;
+  max-width: 280px;
 }
 .category-list button.button_active{
   background-color: var(--color3);
@@ -679,9 +680,18 @@ button.basket-clouse_active{
   transition: 0.5s;
   z-index: 4;
   color: var(--color1);
+
+
+  /* bottom: 0;
+  width: 100vw;
+  transform: translate(-50%, 0%);
+  transition: 0.5s; */
 }
 .annonce-block.displayNone{
-  display: none;
+  /* display: none; */
+  transform: translate(-50%, 100%);
+  visibility: hidden;
+  opacity: 0;
 }
 
 .annonce-block h2 {
