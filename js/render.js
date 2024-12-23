@@ -49,12 +49,12 @@ addressLinkA.querySelector('span').innerText = address
 // const nameinputfood = 'entry.1273514537';
 // const nameinputcomment = 'entry.358016200';
 
-// const botToken = "7722475036:AAHXV-qTFP3eOTxmg_3fiRv28xLa8DkK7E8";
-// const chatId = "-1002477466358";
+const botToken = "7722475036:AAHXV-qTFP3eOTxmg_3fiRv28xLa8DkK7E8";
+const chatId = "-1002477466358";
 
 // тестовый бот
-const botToken = "6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4";
-const chatId = "-4566719816";
+// const botToken = "6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4";
+// const chatId = "-4566719816";
 
 
 const words = {
