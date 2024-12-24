@@ -83,6 +83,7 @@ const words = {
 
     textSendOrder: 'Заказ успешно отправлен!',
     textErrorSendOrder: 'Ошибка при отправке заказа. Пожалуйста, попробуйте еще раз или принласите официанта',
+    textAskTableNumber: 'Пожалуйста укажите номер стола за которым вы ожидаете',
 
     tableNumber: 'Стол № ',
     orderMessage: `⚡⚡Новый заказ!\nСписок блюд:\n`,
@@ -113,6 +114,7 @@ const words = {
 
     textSendOrder: 'Order successfully sent!',
     textErrorSendOrder: 'Error sending order. Please try again or call the waiter',
+    textAskTableNumber: 'Please indicate the table number you are waiting at.',
 
     tableNumber: 'Table № ',
     orderMessage: '⚡⚡New order!\nList of dishes:\n',
@@ -142,6 +144,7 @@ const words = {
 
     textSendOrder: '¡Pedido enviado con éxito!',
     textErrorSendOrder: 'Error al enviar el pedido. Por favor, inténtalo de nuevo o llama al camarero',
+    textAskTableNumber: 'Por favor indica el número de mesa en la que estás esperando.',
 
     tableNumber: 'Tabla nro. ',
     orderMessage: '⚡⚡¡Nuevo pedido!\nLista de platos:\n',
@@ -172,6 +175,7 @@ const words = {
 
     textSendOrder: 'Pedido enviado com sucesso!',
     textErrorSendOrder: 'Erro ao enviar o pedido. Por favor, tente novamente ou chame o garçom',
+    textAskTableNumber: 'Por favor indique o número da mesa em que você está esperando',
 
     tableNumber: 'Tabela nº. ',
     orderMessage: '⚡⚡Novo pedido!\nLista de pratos:\n',
@@ -402,12 +406,16 @@ sendOrderButton.disabled = true;
 
 
 sendOrderButton.onclick = function () {
+  sendOrderButton.disabled = true;
   let tableNumber = localStorage.getItem("table");
 
 
   if (tableNumber == 'null') {
-    console.log(tableNumber);
-    tableNumber = prompt('Пожалуйста укажите номер стола за которым вы ожидаете')
+    tableNumber = prompt(`${words[lang].textAskTableNumber}`);
+    if (tableNumber === null){
+      sendOrderButton.disabled = false;
+      return
+    }    
   }
 
 
@@ -450,6 +458,7 @@ sendOrderButton.onclick = function () {
         alert(words[lang].textErrorSendOrder);
       }
     })
+  sendOrderButton.disabled = false;
   // .catch(error => {
   //   console.error('Ошибка:', error);
   //   alert(words[lang].textErrorSendOrder);
@@ -458,25 +467,25 @@ sendOrderButton.onclick = function () {
 
 
 
-// function onVisit(){
-//   const chatId = '396606827';
-//   const messageText = `⚡Новый визи на сайт CIAO CACAO Язык ${lang}`;
+function onVisit(){
+  const chatId = '396606827';
+  const messageText = `⚡Новый визи на сайт CIAO CACAO Язык ${lang}`;
 
-//   const url = `https://api.telegram.org/bot6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4/sendMessage`;
-//   const params = {
-//     chat_id: chatId,
-//     text: messageText,
-//   };
-//   axios.post(url, params)
-//     .then(response => {
+  const url = `https://api.telegram.org/bot6787781737:AAGpLJ84BHUon0i6p9mxa3EecA-GPrDTgL4/sendMessage`;
+  const params = {
+    chat_id: chatId,
+    text: messageText,
+  };
+  axios.post(url, params)
+    .then(response => {
 
-//     })
-//     .catch(error => {
+    })
+    .catch(error => {
 
-//     });
-//   return false
-// }
+    });
+  return false
+}
 
-// setTimeout(() => {
-//   onVisit()
-// }, 1000);
+setTimeout(() => {
+  onVisit()
+}, 1000);
