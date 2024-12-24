@@ -1,11 +1,3 @@
-// Google Apps Script
-function doGet() {
-  var sheet = SpreadsheetApp.openById('1Ze6lbb7i05sbXAnkZWrDca2LfoHFb3-cdJzEEc0pHPU').getSheetByName('Sheet1');
-  var data = sheet.getDataRange().getValues();
-  var output = ContentService.createTextOutput(JSON.stringify(data));
-  output.setMimeType(ContentService.MimeType.JSON);
-  return output;
-}
 
 
 //-----------------------------------//
@@ -14,7 +6,7 @@ function doGet() {
 // Функция fetchDishesList выполняет HTTP-запрос для получения данных о блюдах
 export function fetchDishesList() {
   // Выполняем fetch-запрос к указанному URL
-  return fetch('https://script.google.com/macros/s/AKfycbwAXs8zK4zfihh5Glv2R6z4kDcxO60kaXJHUo3oRMFpaw9e9Kk3yI5uxDC8KzbqNCXdlQ/exec')
+  return fetch('https://script.google.com/macros/s/AKfycbzrgwvjKs_V0AiYjIihh8ahFBG6smkFkODH7kIDfMbduaRMLimL_KaQhcoPVX5XVz3S/exec')
     .then(response => {
       // Проверяем, успешен ли ответ
       if (!response.ok) {
