@@ -19,7 +19,7 @@ fetchDishesList()
   });
 
 
-const VersionPro = true
+const VersionPro = false
 if (VersionPro == false) {
   document.getElementById('sendOrder').classList.add('display_none');
 } else {
@@ -303,7 +303,7 @@ function basketUpdate(action, dishId, dishName, dishNameMainLang, portionName, p
     basketButtonOpen.classList.add('basket_have');
     portionNumberSpan.textContent = parseInt(portionNumberSpan.textContent) + 1;
     if (basketList.find(item => item.dishId === `${dishId}-${portionName}`)) {
-      ;
+      
       basketList = basketList.map(item => item.dishId === `${dishId}-${portionName}` ? { ...item, portionNumber: parseInt(portionNumberSpan.textContent), totalCost: portionCost * parseInt(portionNumberSpan.textContent) } : item);
     } else {
       basketList.push({
