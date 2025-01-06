@@ -1,0 +1,20 @@
+{
+  "name": "CIAO CACAO",
+  "short_name": "CIAO CACAO",
+  "start_url": "https://iqrmenu.github.io/CIAO-CACAO/",
+  "display": "standalone",
+  "background_color": "#292021",
+  "theme_color": "#292021",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "/img/Logo.png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "/img/Logo.png"
+    }
+  ]
+}
