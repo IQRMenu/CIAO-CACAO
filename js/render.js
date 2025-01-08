@@ -31,6 +31,19 @@ if (VersionPro == false) {
 document.querySelector('#annonce-block-clouse').onclick = function () {
   document.querySelector('.annonce-block').classList.add('displayNone');
   document.querySelector('body').classList.remove('event_none');
+
+  if (!document.documentElement.requestFullscreen) {
+    return;
+  }
+
+
+  document.documentElement.requestFullscreen()
+    .then(() => {
+      console.log("Включён полноэкранный режим");
+    })
+    .catch(err => {
+      console.error(`Ошибка при входе в полноэкранный режим: ${err.message}`);
+    });
 }
 
 
@@ -303,7 +316,7 @@ function basketUpdate(action, dishId, dishName, dishNameMainLang, portionName, p
     basketButtonOpen.classList.add('basket_have');
     portionNumberSpan.textContent = parseInt(portionNumberSpan.textContent) + 1;
     if (basketList.find(item => item.dishId === `${dishId}-${portionName}`)) {
-      
+
       basketList = basketList.map(item => item.dishId === `${dishId}-${portionName}` ? { ...item, portionNumber: parseInt(portionNumberSpan.textContent), totalCost: portionCost * parseInt(portionNumberSpan.textContent) } : item);
     } else {
       basketList.push({
@@ -412,10 +425,10 @@ sendOrderButton.onclick = function () {
 
   if (tableNumber == 'null') {
     tableNumber = prompt(`${words[lang].textAskTableNumber}`);
-    if (tableNumber === null){
+    if (tableNumber === null) {
       sendOrderButton.disabled = false;
       return
-    }    
+    }
   }
 
 
@@ -467,7 +480,7 @@ sendOrderButton.onclick = function () {
 
 
 
-function onVisit(){
+function onVisit() {
   const chatId = '396606827';
   const messageText = `⚡Новый визи на сайт CIAO CACAO Язык ${lang}`;
 
