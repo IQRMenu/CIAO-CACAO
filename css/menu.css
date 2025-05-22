@@ -1,7 +1,8 @@
 body{
   padding-bottom: 140px;
-  padding-top: 120px;
+  padding-top: 140px;
   position: relative;
+  overflow-y: auto;
 }
 
 .loader{
@@ -330,6 +331,10 @@ button.basket-clouse_active{
   overflow-x: auto;
   background-color: #121212b0;
   padding: 20px;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  z-index: 10;
 }
 
 .category-list::-webkit-scrollbar{
@@ -359,13 +364,15 @@ button.basket-clouse_active{
 
 .dishes-list{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
-  overflow-x: auto;
+  overflow-y: auto;
   width: 100vw;
   padding: 20px;
   background-color: #1212124d;
   transition: 0.5s;
+  flex-wrap: 1;
+  /* height: 200px; */
 }
 .dishes-list::-webkit-scrollbar{
   width: 6px;
@@ -386,7 +393,7 @@ button.basket-clouse_active{
   flex-direction: column;
   gap: 16px;
   flex-shrink: 0;
-  width: calc(100vw - 60px);
+  width: calc(100vw - 40px);
   max-width: 400px;
   transition: 0.5s;
   position: relative;

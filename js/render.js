@@ -245,6 +245,8 @@ function renderDishesList(category) {
   dishesListContainer.classList.add('dishes-list_loading');
   setTimeout(() => {
     dishesListContainer.innerHTML = '';
+    document.querySelector('body').scrollTop = 0;
+    dishesListContainer.scrollTop = 0;
     storeData.forEach(dishitem => {
       if (dishitem[`${lang}Category`] === category && dishitem.inStore == 'Yes') {
         const dishCard = document.createElement('div');
@@ -304,7 +306,7 @@ function renderDishesList(category) {
         dishesListContainer.appendChild(dishCard);
       }
     });
-    dishesListContainer.scrollLeft = 0;
+    
     dishesListContainer.classList.remove('dishes-list_loading');
   }, 500);
 
